@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <div>
+        <input type="text" id="user_name">
+        <ul>
+            <li><button onclick="selectedColor('red')">red</button></li>
+            <li><button onclick="selectedColor('green')">green</button></li>
+            <li><button onclick="selectedColor('blue')">blue</button></li>
+            <li><button onclick="selectedColor('yellow')">yellow</button></li>
+        </ul>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function selectedColor(color_name){
+        if($("#user_name").val().length == 0){
+            alert("이름을 입력하세요")
+        }else{
+            var url = 'http://localhost:8080/api/select?color='+color_name+'&user='+$("#user_name").val();
+            $.get(url);
+        }
+    }
+</script>
+</html>
